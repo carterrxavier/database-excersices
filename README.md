@@ -1,0 +1,1 @@
+This repository is set up to test my database excersises =. 
