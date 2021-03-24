@@ -42,7 +42,7 @@ where name = 'nevermind';
 #4d.
 select name 
 from albums 
-where release_date between 1990 and 2000;
+where release_date between 1990 and 1999;
 
 #4e
 select name ,sales
@@ -52,7 +52,7 @@ where sales < 20.0;
 #4f. 
 select name , genre
 from albums
-where genre ="rock" ; #querying specifically for rock will only return specifically for "rock" .if you want to get other forms of rock as well you should use  LIKE %rock%
+where genere ="rock" ; #querying specifically for rock will only return specifically for "rock" .if you want to get other forms of rock as well you should use  LIKE %rock%
 
 select name , genre
 from albums
