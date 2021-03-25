@@ -19,21 +19,21 @@ from employees
 where first_name = 'Irena' or first_name = 'Vidya' or first_name = 'Maya'
 order by last_name asc, first_name asc;
 
-#5 --first person = Ramzi Erde , last person  Dharmaraja Ertl
+#5 899 employees --first person = Ramzi Erde 10021  , last person Tadahiro Erde 499648
 select first_name, last_name, emp_no
 from employees 
-where last_name like 'e%'
+where last_name like 'e%' and last_name like '%e'
 order by emp_no asc;
 
 
-#6 --362 eployees returned . first person = Teiji Eldridge , last person Sergi Erde
+#6 --899 eployees returned . first person = Teiji Eldridge , last person Sergi Erde
 select first_name, last_name, hire_date
 from employees 
 where last_name like 'e%' and last_name like '%e'
 order by hire_date desc;
 
 
-#7 -- oldest employee hired last = Khun Bernini,   Youngest employee hired first = Douadi Pettis
+#7 -- 362 oldest employee hired last = Khun Bernini,   Youngest employee hired first = Douadi Pettis
 select first_name, last_name, birth_date, hire_date
 from employees
 where birth_date like '%-12-25' and hire_date like '199%'
