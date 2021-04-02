@@ -66,9 +66,9 @@ from temp_employees;
 
 
 -- get historcal avg and std--
-drop table historical_avg;
-create temporary table historical_avg as
-select avg(salaries.salary) as average, stddev(salaries.salary) as std
+drop table historic;
+create temporary table historic as
+select avg(salaries.salary) as avg, stddev(salaries.salary) as std
 from employees.salaries;
 
 
@@ -78,12 +78,12 @@ alter table temp_employees add historic_avg float;
 alter table temp_employees add historic_std float;
 alter table temp_employees add z_score float not null;
 
-update temp_employees set historic_avg = (select average from historical_avg);
-update temp_employees set historic_std = (select std     from historical_avg);
+update temp_employees set historic_avg = (select avg from historic);
+update temp_employees set historic_std = (select std from historic);
 update temp_employees set z_score = (temp_employees.current_average - historic_avg) / historic_std;
 
 -- review  updates sales best z_score, Human Resources worst -- 
-select*
+select dept_name, z_score
 from temp_employees;
 
 
